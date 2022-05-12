@@ -1,0 +1,81 @@
+async def startup(self):
+        await bot.wait_until_ready()
+        await bot.tree.sync()  # If you want to define specific guilds, pass a discord object with id (Currently, this is global)
+        print('Sucessfully synced applications commands')
+        print(f'Connected as {bot.user}')
+
+
+    await bot.tree.sync()
+    self.loop.create_task(self.startup())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@app_commands.command( name = 'timeout', description = "mutes/timeouts a member")
+  @app_commands.checks.has_permissions(moderate_members = True)
+  async def timeout(self,interaction: discord.Interaction , member: Options(discord.Member, required = True), reason: Options(str, required = False), days: Options( max_value = 27,  required = False), hours: Options( required = False), minutes: Options( required = False), seconds: Options( required = False)): #setting each value with a default value of 0 reduces a lot of the code
+    if member.id == interaction.author.id:
+        await interaction.respond("You can't timeout yourself!")
+        return
+    if member.guild_permissions.moderate_members:
+        await interaction.respond("You can't do this, this person is a moderator!")
+        return
+    duration = timedelta(days = days, hours = hours, minutes = minutes, seconds = seconds)
+    if duration >= timedelta(days = 28): 
+        await interaction.respond("I can't mute someone for more than 28 days!", ephemeral = True) #responds, but only the author can see the response
+        return
+    if reason == None:
+        await member.timeout_for(duration)
+        await interaction.respond(f"<@{member.id}> has been timed out for {days} days, {hours} hours, {minutes} minutes, and {seconds} seconds by <@{interaction.author.id}>.")
+    else:
+        await member.timeout_for(duration, reason = reason)
+        await interaction.respond(f"<@{member.id}> has been timed out for {days} days, {hours} hours, {minutes} minutes, and {seconds} seconds by <@{interaction.author.id}> for '{reason}'.")
+
+  
+
+@app_commands.command( name = 'unmute', description = "unmutes/untimeouts a member")
+@app_commands.checks.has_permissions(moderate_members = True)
+async def unmute(self,interaction: discord.Interaction, member: Options(discord.Member, required = True), reason: Options(str, required = False)):
+    if reason == None:
+        await member.remove_timeout()
+        await interaction.respond(f"<@{member.id}> has been untimed out by <@{interaction.author.id}>.")
+    else:
+        await member.remove_timeout(reason = reason)
+        await interaction.respond(f"<@{member.id}> has been untimed out by <@{interaction.author.id}> for '{reason}'.")

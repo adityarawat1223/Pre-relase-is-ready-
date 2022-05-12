@@ -1,0 +1,151 @@
+from sqlite3 import converters
+from turtle import color, pos, title
+import discord
+from discord.ext import commands
+import asyncio
+import datetime
+import random
+
+class okokokwth(commands.Cog):
+
+    def __init__(self , bot):
+        self.bot = bot
+
+
+    
+
+    def convert(time):
+        time_dict = {"s" : 1 , "m" : 60, "h" : 3600, "d" :3600*24}
+
+        unit = time[-1]
+
+        if unit not in pos:
+            return -1 
+        try:
+            val = int(time[:-1])
+        except:
+            return -2
+        
+        return val * time_dict[unit]
+  
+        
+pip freeze > requirements.txt
+
+
+        
+
+    @commands.command()
+    @commands.has_permissions(administrator = True)
+    async def gbegin(self, ctx):
+        await ctx.send("let's start with this giveaway! . Plz answer all question under 15 minutes ")
+
+        questions = ["In which channel you want me to start a giveaway ? i want to say you something You SUS! hmmmm",
+                    "what should be the duration of giveaway? ",
+                    "what is the prize of giveaway dont tell me you want to do a giveaway without price"]
+
+        anwers = []
+
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        for i in questions:
+            await ctx.send(i)
+
+            try:
+                msg = await self.bot.wait_for('message', timeout = 15.0 , check = check)
+            except asyncio.TimeoutError:
+                await ctx.send('you took too long bye i am going so i can punch my owner for making me')
+                return
+            else:
+                anwers.append(msg.content)    
+                
+
+# idk what to call this
+    pip freeze > requirements.txt
+
+
+        try:
+            c_id = int(anwers[0][2:-1])
+        except:
+            await ctx.send(f'Mention a channel properly or i will add icecream in your tea')
+        
+        channel = self.bot.get_channel(c_id)
+
+        
+       
+        
+        time = int(anwers[1])
+        
+        
+        if time == -1:
+            await ctx.send("Bruh tell me time i cant host a giveaway without it btw i want to become next iron man")
+            return
+        elif time== -2:
+            await ctx.send('time must be an integer  - Smart bot')
+        
+        
+        
+        prize = anwers[2]
+        
+          
+
+
+        
+
+        await ctx.send(f"Ok i do for you in {channel.mention}")
+
+        embed = discord.Embed(title = "Giveaway" , description = f"{prize}", color = ctx.guild.me.top_role.color,)
+        embed.add_field(name="Hosted by" , value = ctx.author.mention)
+        embed.set_footer(text=f"ends {anwers[1]} From now")
+
+        my_msg = await channel.send(embed = embed)
+
+        await my_msg.add_reaction("🎉")
+
+        await asyncio.sleep(time)
+
+        users = await users.reactions[0].users().flatten()
+        users.pop(users.index(self.user))
+
+        King = random.choice(users)
+
+        await channel.send(f"congratulations {King.mention} you won i never won a giveaway but you won wait does this mean you are better then me ?")
+              
+
+    @commands.command()
+    @commands.has_permissions(administrator = True)
+    async def reroll(self, ctx , channel : discord.TextChannel, id_ : int):
+        try:
+            new_msg = await channel.fetch_message(id_)
+        except:
+            await ctx.send('ID was entered incorrectly hmmm , wait Batman ?')
+            return
+        users = await new_msg.reactions[0].users().flatten()
+        users.pop(users.index(self.user))
+
+        winner = random.choice(users)
+
+        await channel.send(f"Congratulations the new winner is {winner.mention} Rip old winner")
+
+          
+
+#end
+async def setup(self):
+ await self.add_cog(okokokwth(self))
+
+
+
+    result = "Tie"
+    if len(onechoice)>len(secchoice):
+      result = choice1
+    elif len(secchoice) > len(onechoice):
+      result = choice2
+
+    embed = discord.Embed(title= topic , description= f"Result : {result}" , color=interaction.user.color , timestamp=datetime.datetime.utcnow())
+    embed.set_footer(text=f"{choice1} || {choice2}")
+
+    await newmeassge.edit(embed)
+
+     embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow())
+        embed.set_footer(text="If you have any questions, suggestions or bug reports, please join our support Discord Server", icon_url=f"{interaction.user.avatar}")
+        embed.add_field(name='Warning', value='Please specify what do you want me to remind you about.') 
