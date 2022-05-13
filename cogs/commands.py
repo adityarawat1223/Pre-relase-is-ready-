@@ -30,7 +30,7 @@ class Slash(commands.Cog):
 
         if isinstance(error, app_commands.MissingPermissions):
             embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**Only Mods Can Use this command**")
+            ), description="**You are missing manage message permission**")
             embed.set_footer(
                 text="join Our official discord Server ")
 
@@ -71,9 +71,9 @@ class Slash(commands.Cog):
 
         if isinstance(error, app_commands.MissingPermissions):
             embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**Only Mods Can Use this command**")
+            ), description="**You are missing kick members permission**")
             embed.set_footer(
-                text="IIf you think this is an error report it in our official server")
+                text="If you think this is an error report it in our official server")
 
             await interaction.followup.send(embed=embed)
 
@@ -114,7 +114,7 @@ class Slash(commands.Cog):
 
         if isinstance(error, app_commands.MissingPermissions):
             embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**Only Mods Can Use this command**")
+            ), description="**You are missing ban member Permission**")
             embed.set_footer(
                 text="If you think this is an error report it in our official server")
 
@@ -170,7 +170,7 @@ class Slash(commands.Cog):
 
         if isinstance(error, app_commands.MissingPermissions):
             embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**Only Mods Can Use this command**")
+            ), description="**You are missing mute member permission**")
             embed.set_footer(
                 text="If you think this is an error report it in our official server")
 
@@ -212,7 +212,7 @@ class Slash(commands.Cog):
 
         if isinstance(error, app_commands.MissingPermissions):
             embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**Only Mods Can Use this command**")
+            ), description="**You are missing mute member permission to unmute this user**")
             embed.set_footer(
                 text="If you think this is an error plz contact Perry the platypus")
 
