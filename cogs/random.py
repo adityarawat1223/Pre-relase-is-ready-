@@ -14,8 +14,8 @@ class info(commands.Cog):
 
     @commands.command()
     async def info(self, ctx):
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(),
-                              description="**changes -**\n\n<a:arrow_arrow:963331682847580200>**All commands are slash**\n\n<a:arrow_arrow:963331682847580200>**1 . Added Ban Command**\n\n<a:arrow_arrow:963331682847580200>**2. Added Kick command **\n\n<a:arrow_arrow:963331682847580200>**3. Added Mute command**\n\n<a:arrow_arrow:963331682847580200>**4. Added Unmute command**\n\n<a:arrow_arrow:963331682847580200>**5. Added Anime command**\n\n<a:arrow_arrow:963331682847580200>**6. Added Character search command**\n\n<a:arrow_arrow:963331682847580200>**7. Added reminder command**\n\n<a:arrow_arrow:963331682847580200>**8. Added Hug and Busted command **\n\n<a:arrow_arrow:963331682847580200>**9. Added Warn commands**\n\n<a:arrow_arrow:963331682847580200>**10. info command**\n\n<a:arrow_arrow:963331682847580200>**11. added ping command**\n\n<a:arrow_arrow:963331682847580200>**11.added server info command**\n\n<a:arrow_arrow:963331682847580200>**12.major bug fixes **")
+        embed = discord.Embed(color=0x55a7f7, 
+                              description="**changes -**\n\n<a:arrow_arrow:963331682847580200>**All commands are slash**\n\n<a:arrow_arrow:963331682847580200>**1 . Added Ban Command**\n\n<a:arrow_arrow:963331682847580200>**2. Added Kick command **\n\n<a:arrow_arrow:963331682847580200>**3. Added Mute command**\n\n<a:arrow_arrow:963331682847580200>**4. Added Unmute command**\n\n<a:arrow_arrow:963331682847580200>**5. Added Anime command**\n\n<a:arrow_arrow:963331682847580200>**6. Added Character search command**\n\n<a:arrow_arrow:963331682847580200>**7. Added reminder command**\n\n<a:arrow_arrow:963331682847580200>**8. Added Hug and Busted command **\n\n<a:arrow_arrow:963331682847580200>**9. Added Warn commands**\n\n<a:arrow_arrow:963331682847580200>**10. info command**\n\n<a:arrow_arrow:963331682847580200>**11. added ping command**\n\n<a:arrow_arrow:963331682847580200>**11.added server info command**\n\n<a:arrow_arrow:963331682847580200>**12.major bug fixes **\n\n<a:arrow_arrow:963331682847580200>**13.Quality Update")
         await ctx.send(embed=embed)
 
     @app_commands.command(name="ping", description="ping is ping ")
@@ -44,10 +44,9 @@ class info(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), title="**Missing permissions**", description="**Only Mods Can Use this command**")
-            embed.set_footer(
-                text="join Our official discord Server ")
+            embed = discord.Embed(color=0x55a7f7
+            , title="**Missing permissions**", description="**You are missing change nick permission**")
+            
 
             await interaction.followup.send(embed=embed)
     

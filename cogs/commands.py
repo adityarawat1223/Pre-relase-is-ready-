@@ -29,10 +29,9 @@ class Slash(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**You are missing manage message permission**")
-            embed.set_footer(
-                text="join Our official discord Server ")
+            embed = discord.Embed(color=0x55a7f7
+            , description="<a:dvloper:974560024200351744> **You are missing manage message permission**")
+            
 
             await interaction.followup.send(embed=embed)
 
@@ -41,16 +40,15 @@ class Slash(commands.Cog):
     @app_commands.checks.has_permissions(kick_members=True)
     async def Bc(self, interaction: discord.Interaction, user: discord.Member, reason: str) -> None:
         await interaction.response.defer(ephemeral=False, thinking=True)
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-        ), description="You cant Kick A Moderator")
-        embed.set_footer(
-            text="If you think this is an error report it in our official server")
+        embed = discord.Embed(color=0x55a7f7, 
+         description="<a:settings:974560701291057162> You cant Kick A Moderator")
+        
 
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
 
         elif interaction.guild.me.top_role <= user.top_role:
-            embed = discord.Embed(color=0x55a7f7,description="That user is a mod/admin, Try giving me a higher role")
+            embed = discord.Embed(color=0x55a7f7,description="<a:settings:974560701291057162> That user is a mod/admin, Try giving me a higher role")
             await interaction.followup.send(embed=embed)
         else:
             embed = discord.Embed(
@@ -70,10 +68,9 @@ class Slash(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**You are missing kick members permission**")
-            embed.set_footer(
-                text="If you think this is an error report it in our official server")
+            embed = discord.Embed(color=0x55a7f7,
+             description="**<a:settings:974560701291057162> You are missing kick members permission**")
+            
 
             await interaction.followup.send(embed=embed)
 
@@ -82,16 +79,15 @@ class Slash(commands.Cog):
     @app_commands.checks.has_permissions(ban_members=True)
     async def MC(self, interaction: discord.Interaction, user: discord.Member, reason: str) -> None:
         await interaction.response.defer(ephemeral=False, thinking=True)
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-        ), description="**You cant Ban A Moderator**")
-        embed.set_footer(
-            text="If you think this is an error report it in our official server")
+        embed = discord.Embed(color=0x55a7f7, 
+         description="**<a:settings:974560701291057162> You cant Ban A Moderator**")
+        
 
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
 
         elif interaction.guild.me.top_role <= user.top_role:
-            embed = discord.Embed(color=0x55a7f7,description="That user is a mod/admin, Try giving me a higher role")
+            embed = discord.Embed(color=0x55a7f7,description="<a:settings:974560701291057162> That user is a mod/admin, Try giving me a higher role")
             await interaction.followup.send(embed=embed)
 
         else:
@@ -113,10 +109,9 @@ class Slash(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**You are missing ban member Permission**")
-            embed.set_footer(
-                text="If you think this is an error report it in our official server")
+            embed = discord.Embed(color=0x55a7f7, 
+             description="**<a:settings:974560701291057162> You are missing ban member Permission**")
+            
 
             await interaction.followup.send(embed=embed)
 
@@ -125,16 +120,15 @@ class Slash(commands.Cog):
     @app_commands.checks.has_permissions(mute_members=True)
     async def mute(self, interaction: discord.Interaction, user: discord.Member):
         await interaction.response.defer(ephemeral=False, thinking=True)
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-        ), description="You cant Mute A Moderator")
-        embed.set_footer(
-            text="If you think this is an error report it in our official server")
+        embed = discord.Embed(color=0x55a7f7
+        , description="<a:settings:974560701291057162> You cant Mute A Moderator")
+        
 
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
 
         elif interaction.guild.me.top_role <= user.top_role:
-            embed = discord.Embed(color=0x55a7f7,description="That user is a mod/admin, Try giving me a higher role")
+            embed = discord.Embed(color=0x55a7f7,description="<a:settings:974560701291057162> That user is a mod/admin, Try giving me a higher role")
             await interaction.followup.send(embed=embed)
 
         else:
@@ -169,10 +163,9 @@ class Slash(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**You are missing mute member permission**")
-            embed.set_footer(
-                text="If you think this is an error report it in our official server")
+            embed = discord.Embed(color=0x55a7f7,
+             description="<a:settings:974560701291057162> **You are missing mute member permission**")
+            
 
             await interaction.followup.send(embed=embed)
 
@@ -181,16 +174,15 @@ class Slash(commands.Cog):
     @app_commands.checks.has_permissions(mute_members=True)
     async def unmute(self, interaction: discord.Interaction, user: discord.Member):
         await interaction.response.defer(ephemeral=False, thinking=True)
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-        ), description="You cant Unmute ")
-        embed.set_footer(
-            text="If you think this is an error report it in our official server")
+        embed = discord.Embed(color=0x55a7f7
+        , description="<a:settings:974560701291057162> You cant Unmute a mod ")
+        
 
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
 
         elif interaction.guild.me.top_role <= user.top_role:
-            embed = discord.Embed(color=0x55a7f7,description="That user is a mod/admin, Try giving me a higher role")
+            embed = discord.Embed(color=0x55a7f7,description="<a:settings:974560701291057162> That user is a mod/admin, Try giving me a higher role")
             await interaction.followup.send(embed=embed)
 
         else:
@@ -198,8 +190,7 @@ class Slash(commands.Cog):
             await user.remove_roles(unlol)
             embed = discord.Embed(
                 color=0x55a7f7, timestamp=datetime.datetime.utcnow())
-            embed.set_footer(text="If you think this is unfair Join Our Ban appeal Server",
-                             icon_url=f"{interaction.user.avatar}")
+            
             embed.add_field(
                 name='Unmute', value=f"{user} was Unmuted\nNow Be a Good Member ")
             await interaction.followup.send(embed=embed)
@@ -211,10 +202,9 @@ class Slash(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**You are missing mute member permission to unmute this user**")
-            embed.set_footer(
-                text="If you think this is an error plz contact Perry the platypus")
+            embed = discord.Embed(color=0x55a7f7
+            , description="<a:settings:974560701291057162> **You are missing mute member permission to unmute this user**")
+            
 
             await interaction.followup.send(embed=embed)
 

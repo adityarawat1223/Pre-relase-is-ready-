@@ -27,9 +27,8 @@ class warn(commands.Cog):
     async def warn(self, interaction: discord.Interaction, user: discord.Member, reason: str):
         await interaction.response.defer(ephemeral=False, thinking=True)
         embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-        ), description="You cant Warn A Moderator")
-        embed.set_footer(
-            text="Please Consider Reporting Bugs in Official server")
+        ), description="<a:waifu:974563402255048714> You cant Warn A Moderator")
+        
 
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
@@ -60,10 +59,9 @@ class warn(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error, app_commands.MissingPermissions):
-            embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(
-            ), description="**ou need atleast mute member perm to use warn**")
-            embed.set_footer(
-                text="If you think this is an error plz contact Perry the platypus")
+            embed = discord.Embed(color=0x55a7f7, 
+             description="<a:waifu:974563402255048714> **You need atleast mute member perm to use warn**")
+            
 
             await interaction.followup.send(embed=embed)
 
@@ -72,8 +70,8 @@ class warn(commands.Cog):
     @app_commands.checks.has_permissions(mute_members=True)
     async def warnings(self, interaction: discord.Interaction, user: discord.Member):
         await interaction.response.defer(ephemeral=False, thinking=True)
-        embed = discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(),description="You cant check warns of this user")
-        embed.set_footer(text="If you think this is an error plz contact Perry the platypus")
+        embed = discord.Embed(color=0x55a7f7,description="<a:waifu:974563402255048714> You cant check warns of this user")
+        
         
         if interaction.user.top_role <= user.top_role:
             await interaction.followup.send(embed=embed)
@@ -99,8 +97,8 @@ class warn(commands.Cog):
         await interaction.response.defer(ephemeral=False, thinking=True)
 
         if isinstance(error,app_commands.MissingPermissions):
-            embed =  discord.Embed(color=0x55a7f7, timestamp=datetime.datetime.utcnow(),description="**You need atleast mute member perm to check warn**")
-            embed.set_footer(text="Pov You realised You Are not a mod")
+            embed =  discord.Embed(color=0x55a7f7,description="<a:waifu:974563402255048714> **You need atleast mute member perm to check warn**")
+            
             
            
             await interaction.followup.send(embed=embed) 

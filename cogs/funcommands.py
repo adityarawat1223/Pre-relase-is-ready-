@@ -32,7 +32,7 @@ class funcommands(commands.Cog):
     
     async def hug(self ,interaction: discord.Interaction , user : discord.Member):
          await interaction.response.defer(ephemeral = False, thinking = True)
-         await interaction.followup.send(f"**Pov :- {interaction.user} stabbed you on back no more hugs for you rip**")
+         await interaction.followup.send(f"**Pov :- {user.mention} stabbed you on back no more hugs for you rip**")
 
     @hug.error
     async def on_hug_error(interaction: discord.Interaction, error: app_commands.AppCommandError):
