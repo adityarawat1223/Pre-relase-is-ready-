@@ -51,7 +51,7 @@ class myBot(commands.Bot):
 bot = myBot()
 async def main():
     async with bot:
-        await bot.start('OTY1NzY1Nzk5MTgyNzMzMzEy.Yl39fQ.H-0m-zdpe5iMdK15UqK-N-uCtiw')
+        await bot.start('OTY1NzY1Nzk5MTgyNzMzMzEy.G1G6eQ.6-XQO93cDx87L5pzUEK3Sm3wsIdUIhZ1GdQIEc')
 
 asyncio.run(main())
 
