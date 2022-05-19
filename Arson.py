@@ -1,5 +1,4 @@
 
-
 import discord
 from discord.ext import commands
 import asyncio
@@ -51,7 +50,7 @@ class myBot(commands.Bot):
 bot = myBot()
 async def main():
     async with bot:
-        await bot.start(Bot_token)
+        await bot.start(os.environ["Bot_token"])
 
 asyncio.run(main())
 
