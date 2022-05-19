@@ -15,11 +15,11 @@ class myBot(commands.Bot):
             intents=discord.Intents.all(),
             application_id = 965765799182733312)
 
-    #async def startup(self):
-        #await bot.wait_until_ready()
-        #await bot.tree.sync()  # If you want to define specific guilds, pass a discord object with id (Currently, this is global)
-        #print('Sucessfully synced applications commands')
-        #print(f'Connected as {bot.user}')
+    async def startup(self):
+        await bot.wait_until_ready()
+        await bot.tree.sync()  # If you want to define specific guilds, pass a discord object with id (Currently, this is global)
+        print('Sucessfully synced applications commands')
+        print(f'Connected as {bot.user}')
 
     
     
@@ -36,16 +36,16 @@ class myBot(commands.Bot):
                     print(f"Failed to load {filename}")
                     print(f"[ERROR] {e}")
 
-            #await bot.tree.sync()
-            #self.loop.create_task(self.startup())
+            await bot.tree.sync()
+            self.loop.create_task(self.startup())
         
 
            
 
         
  
-    #async def on_ready(self):
-        print(f'{self.user} has connected to discord!')
+    async def on_ready(self):
+       print(f'{self.user} has connected to discord!')
 
 
 bot = myBot()
