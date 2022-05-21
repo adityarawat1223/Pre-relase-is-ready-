@@ -50,10 +50,10 @@ class warn(commands.Cog):
 
             embed.add_field(
                 name='Warn', value=f"Warned {user.mention} for **{reason}**\n They now have **{new_count} warns**")
-            await interaction.followup.send(embed=embed)
+            
             logs = self.bot.get_channel(974312840724889600)
             await logs.send(embed=discord.Embed(description=f"{interaction.user.mention} Used warn\n Reason -``{reason}``"))
-            
+            await interaction.followup.send(embed=embed)
 
     @warn.error
     async def on_app_command_error(self,
