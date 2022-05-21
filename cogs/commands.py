@@ -21,6 +21,9 @@ class Slash(commands.Cog):
         deleted = await interaction.channel.purge(limit=amount)
 
         await interaction.followup.send(f'Deleted {len(deleted)} message(s)')
+        logs = self.bot.get_channel(974312836018868264)
+        await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} used Purge And delted {len(deleted)} message(s)"))
+        
 
     @okok.error
     async def on_app_command_error(self,
@@ -60,6 +63,8 @@ class Slash(commands.Cog):
             await user.send(embed=embed)
             await user.kick(reason=reason)
             await interaction.followup.send(embed=embed)
+            logs = self.bot.get_channel(974312840724889600)
+            await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} Kicked {user}\nReason - ``{reason}``"))
 
     @Bc.error
     async def on_app_command_error(self,
@@ -89,6 +94,8 @@ class Slash(commands.Cog):
         elif interaction.guild.me.top_role <= user.top_role:
             embed = discord.Embed(color=0x55a7f7,description="<a:settings:974560701291057162> That user is a mod/admin, Try giving me a higher role")
             await interaction.followup.send(embed=embed)
+            logs = self.bot.get_channel(974312840724889600)
+            await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} Banned {user}\nReason - ``{reason}``"))
 
         else:
             embed = discord.Embed(
@@ -101,6 +108,8 @@ class Slash(commands.Cog):
             await user.ban(reason=reason)
 
             await interaction.followup.send(embed=embed)
+            logs = self.bot.get_channel(974312840724889600)
+            await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} Banned {user}\nReason - ``{reason}``"))
 
     @MC.error
     async def on_app_command_error(self,
@@ -155,6 +164,8 @@ class Slash(commands.Cog):
                 embed.add_field(
                     name='Mute', value=f"{user} was muted .Please follow Rules To Avoid Mute next time ")
                 await interaction.followup.send(embed=embed)
+                logs = self.bot.get_channel(974312840724889600)
+            await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} Muted {user}"))
 
     @mute.error
     async def on_app_command_error(self,
@@ -194,6 +205,8 @@ class Slash(commands.Cog):
             embed.add_field(
                 name='Unmute', value=f"{user} was Unmuted\nNow Be a Good Member ")
             await interaction.followup.send(embed=embed)
+            logs = self.bot.get_channel(974312840724889600)
+            await logs.send(embed = discord.Embed(description=f"{interaction.user.mention} unmuted {user}"))
 
     @unmute.error
     async def on_app_command_error(self,
