@@ -45,7 +45,7 @@ class anime(commands.Cog):
         embed.set_image(url=char.image_url)
         embed.set_footer(text=",".join(list(char.references.keys())[:2]))
         await interaction.followup.send(embed=embed)
-
+#K
 
 #end
 async def setup(bot) -> None:
